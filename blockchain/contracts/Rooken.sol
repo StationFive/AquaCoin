@@ -1,19 +1,17 @@
 pragma solidity ^0.4.17;
 
-import "./BasicToken.sol";
+import "./BaseTokens/StandardToken.sol";
 
-contract Roo is BasicToken {
+contract Rooken is StandardToken {
 
   address public admin;
   mapping (bytes32 => uint32) benefitCosts;
-  mapping (address => mapping ())
   uint public newPlayerAllocation;
 
-  function Roo(uint _newPlayerAllocation) public {
+  function Rooken(uint _newPlayerAllocation) StandardToken("Rooken", "XROO", 18) public {
     admin = msg.sender;
     newPlayerAllocation = _newPlayerAllocation;
   }
-
 
   /**
    * Admin can add a new player to the game
